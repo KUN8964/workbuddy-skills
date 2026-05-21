@@ -8,12 +8,12 @@
 # ============================================
 set -e
 
-REPO_DIR="$HOME/workbuddy-skills"
-REPO_URL="https://github.com/KUN8964/workbuddy-skills.git"
+REPO_DIR="$HOME/skill-hub"
+REPO_URL="https://github.com/KUN8964/skill-hub.git"
 HERMES_SKILLS="$HOME/.hermes/skills"
 WB_SKILLS="$HOME/.workbuddy/skills"
 LOG_FILE="$HOME/.workbuddy/skills-update.log"
-LAUNCHD_PLIST="$HOME/Library/LaunchAgents/com.kun.workbuddy-skills-auto-update.plist"
+LAUNCHD_PLIST="$HOME/Library/LaunchAgents/com.kun.skill-hub-auto-update.plist"
 
 # 确保日志目录存在
 mkdir -p "$(dirname "$LOG_FILE")"
@@ -33,11 +33,11 @@ install_launchd() {
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.kun.workbuddy-skills-auto-update</string>
+  <string>com.kun.skill-hub-auto-update</string>
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>HOME/workbuddy-skills/scripts/skills-auto-update.sh</string>
+    <string>HOME/skill-hub/scripts/skills-auto-update.sh</string>
   </array>
   <key>RunAtLoad</key>
   <true/>

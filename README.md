@@ -7,14 +7,14 @@
 
 ```bash
 # 方式一：一键脚本（推荐，叠加模式，不覆盖内置 skills）
-bash <(curl -s https://raw.githubusercontent.com/KUN8964/workbuddy-skills/main/setup-skills.sh)
+bash <(curl -s https://raw.githubusercontent.com/KUN8964/skill-hub/main/setup-skills.sh)
 
 # 方式二：手动克隆
-git clone https://github.com/KUN8964/workbuddy-skills.git ~/workbuddy-skills
-ln -s ~/workbuddy-skills ~/.workbuddy/skills   # WorkBuddy
+git clone https://github.com/KUN8964/skill-hub.git ~/skill-hub
+ln -s ~/skill-hub ~/.workbuddy/skills   # WorkBuddy
 
 # Hermes 推荐用叠加模式（merge），不替换内置 skills：
-bash ~/workbuddy-skills/setup-skills.sh --mode merge
+bash ~/skill-hub/setup-skills.sh --mode merge
 ```
 
 > **叠加模式（默认）**：git skills 合并到 `~/.hermes/skills/`，内置 skills 保留，同名 skill 不覆盖（保护官方技能）。
@@ -24,13 +24,13 @@ bash ~/workbuddy-skills/setup-skills.sh --mode merge
 
 ```bash
 # 安装开机自动更新服务（macOS launchd）
-bash ~/workbuddy-skills/scripts/skills-auto-update.sh --install-launchd
+bash ~/skill-hub/scripts/skills-auto-update.sh --install-launchd
 
 # 手动检查更新
-bash ~/workbuddy-skills/scripts/skills-auto-update.sh
+bash ~/skill-hub/scripts/skills-auto-update.sh
 
 # 卸载自动更新
-bash ~/workbuddy-skills/scripts/skills-auto-update.sh --uninstall-launchd
+bash ~/skill-hub/scripts/skills-auto-update.sh --uninstall-launchd
 ```
 
 - 开机时自动运行一次
@@ -44,7 +44,7 @@ bash ~/workbuddy-skills/scripts/skills-auto-update.sh --uninstall-launchd
 
 ```bash
 # Skills 自动更新（每次打开终端/IDE 时静默检查）
-(bash ~/workbuddy-skills/scripts/skills-auto-update.sh >/dev/null 2>&1 &)
+(bash ~/skill-hub/scripts/skills-auto-update.sh >/dev/null 2>&1 &)
 ```
 
 这样每次启动终端、VS Code、Cursor 等都会自动检查并同步最新 skills。
@@ -68,7 +68,7 @@ bash ~/workbuddy-skills/scripts/skills-auto-update.sh --uninstall-launchd
 ## 日常同步
 
 ```bash
-cd ~/workbuddy-skills
+cd ~/skill-hub
 
 # 拉取最新（任一台设备修改后）
 git pull
@@ -353,6 +353,6 @@ git add . && git commit -m "描述" && git push
 |-------|----------|------|
 | `vibe-coding-father` | 工程化代码审查官。从架构、独立性、可维护性、安全四个维度审查项目代码，可选提取核心需求生成需求文档，并分析代码修改... | 📁 独立 |
 
-> **总计：112 个 skills** · 更新时间：2026-05-21 17:15
+> **总计：112 个 skills** · 更新时间：2026-05-21 17:41
 
 <!-- SKILLS_TABLE_END -->

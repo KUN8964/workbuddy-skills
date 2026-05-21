@@ -12,8 +12,8 @@ MODE="${1:---mode merge}"
 MODE="${MODE#--mode }"
 [[ "$MODE" != "replace" ]] && MODE="merge"
 
-REPO_URL="https://github.com/KUN8964/workbuddy-skills.git"
-REPO_DIR="$HOME/workbuddy-skills"
+REPO_URL="https://github.com/KUN8964/skill-hub.git"
+REPO_DIR="$HOME/skill-hub"
 AGENTS_DIR="$HOME/.agents/skills"
 
 HERMES_SKILLS="$HOME/.hermes/skills"
@@ -163,7 +163,7 @@ fi
 echo ""
 echo "=== 自动更新 ==="
 AUTO_UPDATE_SCRIPT="$REPO_DIR/scripts/skills-auto-update.sh"
-LAUNCHD_PLIST="$HOME/Library/LaunchAgents/com.kun.workbuddy-skills-auto-update.plist"
+LAUNCHD_PLIST="$HOME/Library/LaunchAgents/com.kun.skill-hub-auto-update.plist"
 
 if [ -f "$AUTO_UPDATE_SCRIPT" ]; then
   if [ -f "$LAUNCHD_PLIST" ]; then
@@ -181,6 +181,6 @@ echo "=== 完成! ==="
 echo "模式:      $MODE"
 echo "WorkBuddy: ls ~/.workbuddy/skills/"
 echo "Hermes:    ls ~/.hermes/skills/"
-echo "更新:      cd ~/workbuddy-skills && git pull"
+echo "更新:      cd ~/skill-hub && git pull"
 echo ""
 echo "📊 每次 commit 自动更新 README 分类表格"
