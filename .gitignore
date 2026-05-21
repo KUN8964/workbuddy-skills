@@ -1,0 +1,11 @@
+# WorkBuddy Skills 版本库
+# 所有设备 clone 到 ~/.workbuddy/skills/ 即可同步
+
+# 压缩包不纳入版本
+*.zip
+*.tar.gz
+
+# 临时文件
+*.tmp
+*.swp
+.DS_Store
