@@ -347,6 +347,12 @@ git add . && git commit -m "描述" && git push
 |-------|----------|------|
 | `godmode` | Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN. | 📁 独立 |
 
-> **总计：111 个 skills** · 更新时间：2026-05-21 16:47
+### 📦 其他（1 个）
+
+| Skill | 功能描述 | 类型 |
+|-------|----------|------|
+| `vibe-coding-father` | 工程化代码审查官。从架构、独立性、可维护性、安全四个维度审查项目代码，可选提取核心需求生成需求文档，并分析代码修改... | 📁 独立 |
+
+> **总计：112 个 skills** · 更新时间：2026-05-21 17:15
 
 <!-- SKILLS_TABLE_END -->
