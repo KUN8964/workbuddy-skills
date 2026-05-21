@@ -6,17 +6,48 @@
 ## 新设备一键初始化
 
 ```bash
-# 方式一：一键脚本（推荐）
+# 方式一：一键脚本（推荐，叠加模式，不覆盖内置 skills）
 bash <(curl -s https://raw.githubusercontent.com/KUN8964/workbuddy-skills/main/setup-skills.sh)
 
 # 方式二：手动克隆
 git clone https://github.com/KUN8964/workbuddy-skills.git ~/workbuddy-skills
 ln -s ~/workbuddy-skills ~/.workbuddy/skills   # WorkBuddy
-ln -s ~/workbuddy-skills ~/.hermes/skills      # Hermes
+
+# Hermes 推荐用叠加模式（merge），不替换内置 skills：
+bash ~/workbuddy-skills/setup-skills.sh --mode merge
 ```
 
-> 脚本自动检测 WorkBuddy 和 Hermes 是否已安装，分别设软链接。
-> 旧 skills 目录会自动备份（加时间戳后缀），放心跑。
+> **叠加模式（默认）**：git skills 合并到 `~/.hermes/skills/`，内置 skills 保留，同名 skill 不覆盖（保护官方技能）。
+> **替换模式**：`bash setup-skills.sh --mode replace`（会丢失内置 skills，不推荐）。
+
+## 自动更新（开机/CLI 启动时检查）
+
+```bash
+# 安装开机自动更新服务（macOS launchd）
+bash ~/workbuddy-skills/scripts/skills-auto-update.sh --install-launchd
+
+# 手动检查更新
+bash ~/workbuddy-skills/scripts/skills-auto-update.sh
+
+# 卸载自动更新
+bash ~/workbuddy-skills/scripts/skills-auto-update.sh --uninstall-launchd
+```
+
+- 开机时自动运行一次
+- 之后每 24 小时检查一次
+- 有更新则 `git pull` + 自动合并到 Hermes（不覆盖内置 skills）
+- 日志：`~/.workbuddy/skills-update.log`
+
+### IDE/CLI 启动时检查
+
+在 shell profile（`~/.zshrc` 或 `~/.bash_profile`）添加：
+
+```bash
+# Skills 自动更新（每次打开终端/IDE 时静默检查）
+(bash ~/workbuddy-skills/scripts/skills-auto-update.sh >/dev/null 2>&1 &)
+```
+
+这样每次启动终端、VS Code、Cursor 等都会自动检查并同步最新 skills。
 
 ## 共享 Skills (`~/.agents/skills/`)
 
@@ -316,6 +347,6 @@ git add . && git commit -m "描述" && git push
 |-------|----------|------|
 | `godmode` | Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN. | 📁 独立 |
 
-> **总计：111 个 skills** · 更新时间：2026-05-21 16:30
+> **总计：111 个 skills** · 更新时间：2026-05-21 16:47
 
 <!-- SKILLS_TABLE_END -->
