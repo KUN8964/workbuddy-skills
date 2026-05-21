@@ -65,8 +65,22 @@ else
   echo "    如需修复: 将 .agents/skills/ 也做版本控制"
 fi
 
+# 5. 安装 pre-commit hook（自动更新分类表格）
+echo "[5/5] 安装 pre-commit hook..."
+HOOK_SRC="$REPO_DIR/scripts/pre-commit-hook.sh"
+HOOK_DST="$REPO_DIR/.git/hooks/pre-commit"
+if [ -f "$HOOK_SRC" ]; then
+  cp "$HOOK_SRC" "$HOOK_DST"
+  chmod +x "$HOOK_DST"
+  echo "  ✓ pre-commit hook 已安装（每次 commit 自动更新分类表格）"
+else
+  echo "  ⚠ hook 脚本未找到，跳过"
+fi
+
 echo ""
 echo "=== 完成! ==="
 echo "WorkBuddy: ls ~/.workbuddy/skills/"
 echo "Hermes:    ls ~/.hermes/skills/"
 echo "更新:      cd ~/workbuddy-skills && git pull"
+echo ""
+echo "📊 每次 commit 会自动更新 README 中的 skills 分类表格"
